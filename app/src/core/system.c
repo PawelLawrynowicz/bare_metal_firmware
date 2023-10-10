@@ -25,6 +25,6 @@ static void systick_setup(void) {
 }
 
 void system_setup(void) {
-  systick_setup();
   rcc_setup();
+  systick_setup();
 }

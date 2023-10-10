@@ -19,13 +19,13 @@ int main(void) {
   system_setup();
   gpio_setup();
 
-  uint64_t start_time = get_ticks();
+  uint64_t start_time = system_get_ticks();
 
   while (1) {
-    if (get_ticks() - start_time >= 1000) {
+    if (system_get_ticks() - start_time >= 1000) {
       gpio_toggle(LD5_PORT, LD5_PIN);
       gpio_toggle(LD4_PORT, LD4_PIN);
-      start_time = get_ticks();
+      start_time = system_get_ticks();
     }
   }
 

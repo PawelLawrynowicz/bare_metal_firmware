@@ -7,6 +7,7 @@ endif
 
 SRC_DIR     = src
 INC_DIR     = inc
+CORE_INC_DIR		= inc/core
 OPENCM3_DIR = ../libopencm3
 
 BINARY = main
@@ -31,6 +32,7 @@ LDFLAGS		+= -L$(OPENCM3_DIR)/lib
 
 DEFS		+= -I$(OPENCM3_DIR)/include
 DEFS		+= -I$(INC_DIR)
+DEFS		+= -I$(CORE_INC_DIR)
 
 ###############################################################################
 # Executables
