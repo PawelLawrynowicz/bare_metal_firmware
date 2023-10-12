@@ -5,18 +5,6 @@
   "tasks": [
     {
       "type": "shell",
-      "label": "power_on",
-      "command": "JLinkExe -CommandFile .vscode/jlink/power-on.jlink",
-      "problemMatcher": []
-    },
-    {
-      "type": "shell",
-      "label": "power_off",
-      "command": "JLinkExe -CommandFile .vscode/jlink/power-off.jlink",
-      "problemMatcher": []
-    },
-    {
-      "type": "shell",
       "label": "build_bootloader",
       "options": {
         "cwd": "bootloader"
@@ -28,9 +16,9 @@
       "type": "shell",
       "label": "build_debug",
       "options": {
-        "cwd": "app"
+        "cwd": "${workspaceFolder}"
       },
-      "command": "make bin",
+      "command": "cmake -B build && cmake --build build",
       "problemMatcher": "$gcc"
     }
   ]

@@ -25,6 +25,10 @@ set(COMPILE_OPTIONS
   -fno-common
   -mcpu=cortex-m4
   -mthumb
+  -Wall
+  -fdata-sections
+  -ffunction-sections
+  -fno-exceptions
   -mfloat-abi=hard
   -mfpu=fpv5-d16
 )
