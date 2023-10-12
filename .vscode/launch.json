@@ -1,66 +1,16 @@
 {
   "configurations": [
     {
-      "name": "JLink: Debug Application",
-      "cwd": "${workspaceFolder}/app",
-      "executable": "./main.elf",
-      "serverpath": "/usr/bin/JLinkGDBServer",
-      "servertype": "jlink",
-      "request": "launch",
-      "type": "cortex-debug",
-      "device": "STM32F303VC",
-      "runToEntryPoint": "main",
-      "interface": "swd",
-      "preLaunchTask": "build_debug"
-    },
-    {
-      "name": "JLink: Debug Bootloader",
-      "cwd": "${workspaceFolder}/bootloader",
-      "executable": "./bootloader.elf",
-      "serverpath": "/usr/bin/JLinkGDBServer",
-      "servertype": "jlink",
-      "request": "launch",
-      "type": "cortex-debug",
-      "device": "STM32F303VC",
-      "runToEntryPoint": "main",
-      "interface": "swd",
-      "preLaunchTask": "build_bootloader"
-    },
-    {
-      "name": "JLink: Attach to Application",
-      "cwd": "${workspaceFolder}/app",
-      "executable": "./main.elf",
-      "serverpath": "/usr/bin/JLinkGDBServer",
-      "servertype": "jlink",
-      "request": "attach",
-      "type": "cortex-debug",
-      "device": "STM32F303VC",
-      "runToEntryPoint": "main",
-      "interface": "swd"
-    },
-    {
-      "name": "JLink: Attach to Bootloader",
-      "cwd": "${workspaceFolder}/bootloader",
-      "executable": "./bootloader.elf",
-      "serverpath": "/usr/bin/JLinkGDBServer",
-      "servertype": "jlink",
-      "request": "attach",
-      "type": "cortex-debug",
-      "device": "STM32F303VC",
-      "runToEntryPoint": "main",
-      "interface": "swd",
-      "preLaunchTask": "build_bootloader"
-    },
-    {
       "name": "ST-Link: Debug Application",
-      "cwd": "${workspaceFolder}/app",
-      "executable": "./main.elf",
+      "cwd": "${workspaceFolder}/build",
+      "executable": "./app.elf",
       "servertype": "stutil",
       "request": "launch",
       "type": "cortex-debug",
       "device": "STM32F303VC",
       "runToEntryPoint": "main",
       "interface": "swd",
+      "showDevDebugOutput": "raw",
       "preLaunchTask": "build_debug"
     },
     {
@@ -77,8 +27,8 @@
     },
     {
       "name": "ST-Link: Attach to Application",
-      "cwd": "${workspaceFolder}/app",
-      "executable": "./main.elf",
+      "cwd": "${workspaceFolder}/build",
+      "executable": "./app.elf",
       "servertype": "stutil",
       "request": "attach",
       "type": "cortex-debug",

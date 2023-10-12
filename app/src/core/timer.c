@@ -17,7 +17,7 @@ void timer_setup(void) {
   timer_enable_oc_output(TIM2, TIM_OC1);
 
   // target_freq = system_freq / (prescaled + arr)
-  timer_set_prescaler();
+  // timer_set_prescaler();
 }
 
 void timer_pwm_set_duty_cycle(float duty_cycle);
