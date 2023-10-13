@@ -1,33 +1,42 @@
 
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/stm32/rcc.h>
+#include <libopencm3/stm32/timer.h>
 
 #include "core/system.h"
+#include "core/timer.h"
 
-#define LD4_PIN  (GPIO8)
-#define LD4_PORT (GPIOE)
-#define LD5_PIN  (GPIO9)
-#define LD5_PORT (GPIOE)
+#define LD_PORT (GPIOE)
+#define LD3_PIN (GPIO9)
 
 static void gpio_setup(void) {
   rcc_periph_clock_enable(RCC_GPIOE);
-  // GPIOE = 0x48000000U + 0x1000
-  gpio_mode_setup(GPIOE, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO8 | GPIO9);
+  gpio_mode_setup(LD_PORT, GPIO_MODE_AF, GPIO_PUPD_NONE, LD3_PIN);
+  gpio_set_af(LD_PORT, GPIO_AF2, LD3_PIN);
 }
 
 int main(void) {
   system_setup();
   gpio_setup();
+  timer_setup();
 
   uint64_t start_time = system_get_ticks();
+  float    duty_cycle = 1.0f;
+
+  timer_pwm_set_duty_cycle(duty_cycle);
 
   while (1) {
-    if (system_get_ticks() - start_time >= 1000) {
-      gpio_toggle(LD5_PORT, LD5_PIN);
-      gpio_toggle(LD4_PORT, LD4_PIN);
+    if (system_get_ticks() - start_time >= 10) {
+      duty_cycle += 1.0f;
+      if (duty_cycle > 100.0f) {
+        duty_cycle = 0.0f;
+      }
+      timer_pwm_set_duty_cycle(duty_cycle);
+
       start_time = system_get_ticks();
     }
   }
 
+  // Never return
   return 0;
 }

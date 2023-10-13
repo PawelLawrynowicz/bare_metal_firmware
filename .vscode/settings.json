@@ -12,6 +12,7 @@
     "ring-buffer.h": "c",
     "flash_common_all.h": "c",
     "gpio.h": "c",
-    "system.h": "c"
+    "system.h": "c",
+    "rcc.h": "c"
   }
 }

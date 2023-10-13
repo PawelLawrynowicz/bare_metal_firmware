@@ -30,7 +30,7 @@ set(COMPILE_OPTIONS
   -ffunction-sections
   -fno-exceptions
   -mfloat-abi=hard
-  -mfpu=fpv5-d16
+  -mfpu=fpv4-sp-d16
 )
 target_compile_options(stm32f303 INTERFACE ${COMPILE_OPTIONS})
 target_link_options(stm32f303 INTERFACE ${COMPILE_OPTIONS})
