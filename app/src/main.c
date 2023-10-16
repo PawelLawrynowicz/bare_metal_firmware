@@ -3,8 +3,8 @@
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/timer.h>
 
-#include "core/system.h"
-#include "core/timer.h"
+#include "system.h"
+#include "timer.h"
 
 #define LD_PORT (GPIOE)
 #define LD3_PIN (GPIO9)
